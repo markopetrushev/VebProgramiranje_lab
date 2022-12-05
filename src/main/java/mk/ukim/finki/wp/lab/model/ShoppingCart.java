@@ -1,13 +1,15 @@
 package mk.ukim.finki.wp.lab.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class ShoppingCart {
 
     @Id
@@ -17,6 +19,8 @@ public class ShoppingCart {
     @OneToOne
     private User user;
     private LocalDateTime dateCreated;
+
+    @ManyToMany
     private List<Order> orders;
 
     public ShoppingCart(User user, LocalDateTime dateCreated, List<Order> orders) {

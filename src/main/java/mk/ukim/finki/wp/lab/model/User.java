@@ -1,13 +1,15 @@
 package mk.ukim.finki.wp.lab.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Data
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "shop_users")
 public class User {
 
@@ -19,6 +21,8 @@ public class User {
     private String surname;
     private String password;
     private LocalDate dateOfBirth;
+
+    @OneToMany
     private List<ShoppingCart> carts;
 
     public User(String username, String name, String surname, String password, LocalDate dateOfBirth, List<ShoppingCart> carts) {

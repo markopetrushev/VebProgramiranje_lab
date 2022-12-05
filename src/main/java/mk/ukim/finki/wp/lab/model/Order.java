@@ -1,18 +1,27 @@
 package mk.ukim.finki.wp.lab.model;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Order {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
 
     private String balloonColor;
 
     private String balloonSize;
 
-    public Order(Long orderId, String balloonColor, String balloonSize) {
-        this.orderId = orderId;
+    public Order(String balloonColor, String balloonSize) {
         this.balloonColor = balloonColor;
         this.balloonSize = balloonSize;
     }
