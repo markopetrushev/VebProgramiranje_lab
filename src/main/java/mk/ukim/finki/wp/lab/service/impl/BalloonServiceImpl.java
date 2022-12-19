@@ -39,10 +39,12 @@ public class BalloonServiceImpl implements BalloonService {
     }
 
     @Override
-    public void createBalloon(String name, String description, Manufacturer manufacturer) {
+    public Balloon createBalloon(String name, String description, Manufacturer manufacturer) {
         if(name == null || description == null || manufacturer == null)
             throw new IllegalArgumentException();
+        Balloon b = new Balloon(name, description, manufacturer);
         balloonRepository.save(new Balloon(name,description,manufacturer));
+        return b;
     }
 
     @Override

@@ -20,8 +20,7 @@ public class Manufacturer {
     private String country;
     private String address;
 
-    public Manufacturer(Long id, String name, String country, String address) {
-        this.id = id;
+    public Manufacturer(String name, String country, String address) {
         this.name = name;
         this.country = country;
         this.address = address;

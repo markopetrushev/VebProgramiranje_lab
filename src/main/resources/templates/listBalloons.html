@@ -47,14 +47,18 @@
                         <td th:text="${balloon.getManufacturer() != null}
                         ?${balloon.getManufacturer().getName()} : 'No Manufacturer'"></td>
                         <td class="text-right">
+                            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                             <form th:method="DELETE" th:action="@{'/balloons/delete/{id}' (id=${balloon.getId()})}">
                                 <button type="submit">Delete</button>
                             </form>
+                            </th:block>
                         </td>
                         <td>
+                            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                             <form th:method="PUT" th:action="@{'/balloons/edit-form/{id}' (id=${balloon.getId()})}">
                                 <button type="submit">Edit</button>
                             </form>
+                            </th:block>
                         </td>
                     </tr>
                     </tbody>
@@ -64,9 +68,11 @@
         </div>
         <div class="col mb-3">
             <div class="row">
+                <th:block sec:authorize="hasRole('ROLE_ADMIN')">
                 <form th:method="GET" th:action="@{'/balloons/add-form'}">
                     <button type="submit">Add new Balloon</button>
                 </form>
+                </th:block>
             </div>
         </div>
     </div>

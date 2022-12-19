@@ -4,6 +4,7 @@ import mk.ukim.finki.wp.lab.model.Balloon;
 import mk.ukim.finki.wp.lab.model.Manufacturer;
 import mk.ukim.finki.wp.lab.service.BalloonService;
 import mk.ukim.finki.wp.lab.service.ManufacturerService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,7 @@ public class BalloonController {
     }
 
     @PutMapping("/edit-form/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String getEditBalloonPage(@PathVariable Long id, Model model){
         if(this.balloonService.findById(id).isPresent()){
             Balloon balloon = this.balloonService.findById(id).get();
@@ -47,6 +49,7 @@ public class BalloonController {
     }
 
     @GetMapping("/add-form")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String getAddBalloonPage(Model model){
         List<Manufacturer> manufacturers = this.manufacturerService.findAll();
         model.addAttribute("manufacturers",manufacturers);
@@ -54,12 +57,14 @@ public class BalloonController {
     }
 
     @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deleteBalloon(@PathVariable Long id){
         this.balloonService.deleteById(id);
         return "redirect:/balloons";
     }
 
     @PostMapping("/add")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String saveBalloon(@RequestParam String name, @RequestParam String description, @RequestParam Long id){
         this.balloonService.createBalloon(name,description,manufacturerService.getManufacturerById(id));
         return "redirect:/balloons";
@@ -69,5 +74,10 @@ public class BalloonController {
     public String getOrdersPage(Model model){
 
         return "userOrders";
+    }
+
+    @GetMapping("/access_denied")
+    public String accessDeniedPage() {
+        return "access_denied";
     }
 }
