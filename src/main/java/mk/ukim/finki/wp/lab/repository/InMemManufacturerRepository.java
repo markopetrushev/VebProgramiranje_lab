@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class ManufacturerRepository {
+public class InMemManufacturerRepository {
 
     public List<Manufacturer> findAll() {
         return DataHolder.manufacturers;

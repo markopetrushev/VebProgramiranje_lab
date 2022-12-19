@@ -16,11 +16,11 @@ public class DataHolder {
 
     @PostConstruct
     public void init() {
-        balloons.add(new Balloon(1L, "Danger", "red", new Manufacturer(1L, "Bloon Industries", "USA", "4390 Emily Renzelli Boulevard")));
-        balloons.add(new Balloon(2L, "Caution", "yellow", new Manufacturer(2L, "Balloon Bonanza", "Kazakhstan", "Balykshy / Ul. Abay Kunanbaev (Aktobe), bld. 26")));
-        balloons.add(new Balloon(3L, "Eco", "green", new Manufacturer(3L, "Helium Heaven", "Germany", " Augsburger Straße 21")));
-        balloons.add(new Balloon(4L, "Fun", "blue", new Manufacturer(4L, "The Balloon Express", "Japan", "226-1181, Omagari Marukocho")));
-        balloons.add(new Balloon(5L, "UltraFun", "cyan", new Manufacturer(5L, "BLoON Central", "Macedonia", "Leninova 29, Skopje 1000")));
+        balloons.add(new Balloon("Danger", "red", new Manufacturer(1L, "Bloon Industries", "USA", "4390 Emily Renzelli Boulevard")));
+        balloons.add(new Balloon("Caution", "yellow", new Manufacturer(2L, "Balloon Bonanza", "Kazakhstan", "Balykshy / Ul. Abay Kunanbaev (Aktobe), bld. 26")));
+        balloons.add(new Balloon("Eco", "green", new Manufacturer(3L, "Helium Heaven", "Germany", " Augsburger Straße 21")));
+        balloons.add(new Balloon("Fun", "blue", new Manufacturer(4L, "The Balloon Express", "Japan", "226-1181, Omagari Marukocho")));
+        balloons.add(new Balloon("UltraFun", "cyan", new Manufacturer(5L, "BLoON Central", "Macedonia", "Leninova 29, Skopje 1000")));
 
         manufacturers.add(new Manufacturer(1L, "Bloon Industries", "USA", "4390 Emily Renzelli Boulevard"));
         manufacturers.add(new Manufacturer(2L, "Balloon Bonanza", "Kazakhstan", "Balykshy / Ul. Abay Kunanbaev (Aktobe), bld. 26"));

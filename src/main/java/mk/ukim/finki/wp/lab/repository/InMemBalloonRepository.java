@@ -5,12 +5,11 @@ import mk.ukim.finki.wp.lab.model.Balloon;
 import mk.ukim.finki.wp.lab.model.Manufacturer;
 import org.springframework.stereotype.Repository;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class BalloonRepository {
+public class InMemBalloonRepository {
 
     public List<Balloon> findAllBalloons() {
         return DataHolder.balloons;
@@ -25,7 +24,7 @@ public class BalloonRepository {
 
     public void createBalloon(String name, String description, Manufacturer manufacturer){
         DataHolder.balloons.removeIf(b->b.getName().equals(name));
-        DataHolder.balloons.add(new Balloon(DataHolder.generateId(), name, description, manufacturer));
+        DataHolder.balloons.add(new Balloon(name, description, manufacturer));
     }
 
     public void deleteById(Long id){

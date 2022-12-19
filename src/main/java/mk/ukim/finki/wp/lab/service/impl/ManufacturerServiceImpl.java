@@ -1,7 +1,7 @@
 package mk.ukim.finki.wp.lab.service.impl;
 
 import mk.ukim.finki.wp.lab.model.Manufacturer;
-import mk.ukim.finki.wp.lab.repository.ManufacturerRepository;
+import mk.ukim.finki.wp.lab.repository.jpaRepository.ManufacturerRepository;
 import mk.ukim.finki.wp.lab.service.ManufacturerService;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +25,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public Manufacturer getManufacturerById(Long id) {
         if (id == null)
             throw new IllegalArgumentException();
-        return manufacturerRepository.findManufacturer(id);
+        return manufacturerRepository.getManufacturerById(id);
     }
 }

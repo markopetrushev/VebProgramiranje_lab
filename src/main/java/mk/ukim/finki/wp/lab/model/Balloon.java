@@ -3,7 +3,6 @@ package mk.ukim.finki.wp.lab.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 
 @Entity
 @Getter
@@ -20,8 +19,7 @@ public class Balloon {
     @ManyToOne
     private Manufacturer manufacturer;
 
-    public Balloon(Long id, String name, String description, Manufacturer manufacturer) {
-        this.id = id;
+    public Balloon(String name, String description, Manufacturer manufacturer) {
         this.name = name;
         this.description = description;
         this.manufacturer = manufacturer;

@@ -22,7 +22,7 @@ public class User {
     private String password;
     private LocalDate dateOfBirth;
 
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<ShoppingCart> carts;
 
     public User(String username, String name, String surname, String password, LocalDate dateOfBirth, List<ShoppingCart> carts) {
