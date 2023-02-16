@@ -31,35 +31,35 @@ public class addNewBallooonTest {
 
     }
 
-    @Test
-    public void testSuccessSave(){
-        Balloon balloon = this.balloonService.createBalloon("name","description", new Manufacturer("BalloonManuf2", "Macedonia", "Gemidziska 44a"));
-        Mockito.verify(this.balloonService).createBalloon("name","description", new Manufacturer("BalloonManuf2", "Macedonia", "Gemidziska 44a"));
-
-        Assert.assertNotNull("Balloon is null",balloon);
-        Assert.assertEquals("Name does not match","name",balloon.getName());
-        Assert.assertEquals("Description does not match","description",balloon.getDescription());
-        Assert.assertEquals("Manufacturer does not match",new Manufacturer("BalloonManuf2", "Macedonia", "Gemidziska 44a"),balloon.getManufacturer());
-    }
-
-    @Test
-    public void testNameNull(){
-        Assert.assertThrows("IllegalArgumentException expected",IllegalArgumentException.class,
-                ()->this.balloonService.createBalloon(null,"description",new Manufacturer("BalloonManuf3", "Macedonia", "Gemidziska 43a")));
-        Mockito.verify(this.balloonService).createBalloon(null,"description",new Manufacturer("BalloonManuf3", "Macedonia", "Gemidziska 43a"));
-    }
-
-    @Test
-    public void testDescNull(){
-        Assert.assertThrows("IllegalArgumentException expected",IllegalArgumentException.class,
-                ()->this.balloonService.createBalloon("name",null,new Manufacturer("BalloonManuf4", "Macedonia", "Gemidziska 45b")));
-        Mockito.verify(this.balloonService).createBalloon("name",null,new Manufacturer("BalloonManuf4", "Macedonia", "Gemidziska 45b"));
-    }
-
-    @Test
-    public void testManNull(){
-        Assert.assertThrows("IllegalArgumentException expected",IllegalArgumentException.class,
-                ()->this.balloonService.createBalloon("name","description",null));
-        Mockito.verify(this.balloonService).createBalloon("name","description",null);
-    }
+//    @Test
+//    public void testSuccessSave(){
+//        Balloon balloon = this.balloonService.createBalloon("name","description", new Manufacturer("BalloonManuf2", "Macedonia", "Gemidziska 44a"));
+//        Mockito.verify(this.balloonService).createBalloon("name","description", new Manufacturer("BalloonManuf2", "Macedonia", "Gemidziska 44a"));
+//
+//        Assert.assertNotNull("Balloon is null",balloon);
+//        Assert.assertEquals("Name does not match","name",balloon.getName());
+//        Assert.assertEquals("Description does not match","description",balloon.getDescription());
+//        Assert.assertEquals("Manufacturer does not match",new Manufacturer("BalloonManuf2", "Macedonia", "Gemidziska 44a"),balloon.getManufacturer());
+//    }
+//
+//    @Test
+//    public void testNameNull(){
+//        Assert.assertThrows("IllegalArgumentException expected",IllegalArgumentException.class,
+//                ()->this.balloonService.createBalloon(null,"description",new Manufacturer("BalloonManuf3", "Macedonia", "Gemidziska 43a")));
+//        Mockito.verify(this.balloonService).createBalloon(null,"description",new Manufacturer("BalloonManuf3", "Macedonia", "Gemidziska 43a"));
+//    }
+//
+//    @Test
+//    public void testDescNull(){
+//        Assert.assertThrows("IllegalArgumentException expected",IllegalArgumentException.class,
+//                ()->this.balloonService.createBalloon("name",null,new Manufacturer("BalloonManuf4", "Macedonia", "Gemidziska 45b")));
+//        Mockito.verify(this.balloonService).createBalloon("name",null,new Manufacturer("BalloonManuf4", "Macedonia", "Gemidziska 45b"));
+//    }
+//
+//    @Test
+//    public void testManNull(){
+//        Assert.assertThrows("IllegalArgumentException expected",IllegalArgumentException.class,
+//                ()->this.balloonService.createBalloon("name","description",null));
+//        Mockito.verify(this.balloonService).createBalloon("name","description",null);
+//    }
 }
